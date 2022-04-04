@@ -60,6 +60,17 @@ function append_to_array() {
     echo ${#arr[*]}
 }
 
+function build_array_from_string() {
+    str="foo,bar,beijing,shanghai,shenzhen"
+    IFS=',' read -r -a arr <<< "$str"
+    echo ${arr[@]}
+    # iterate over array
+    for item in ${arr[@]}; do
+        echo $item
+    done
+}
+
 # array_basic
-append_to_array
+# append_to_array
+build_array_from_string
 
