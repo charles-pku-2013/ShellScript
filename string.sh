@@ -23,5 +23,20 @@ function quotes_test() {
     echo "My name is \"${name}\"."  # 双引号内双引号需要转义
 }
 
+function compare() {
+    var1="TesT"
+    var2="tEst"
+    # tolower toupper only works above bash 4.2+
+    echo ${var1,,} ${var2,,}
+    echo ${var1^^} ${var2^^}
+
+    if [ "${var1,,}" = "${var2,,}" ]; then
+        echo "Equal!"
+    else
+        echo "Not equal!"
+    fi
+}
+
 # append_to_string
-quotes_test
+# quotes_test
+compare
